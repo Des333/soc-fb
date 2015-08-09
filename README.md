@@ -1,2 +1,2 @@
 # soc-fb
-Simple Linux Framebuffer with SoC Cyclone V FPGA
+Simple Linux Framebuffer with Altera Cyclone V SoC FPGA
