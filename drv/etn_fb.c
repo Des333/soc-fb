@@ -68,9 +68,6 @@ static void lcd_write_command(u16 val)
 	/* All control signals high */
 	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD |
 		       LCD_CTRL_CR_WR | LCD_CTRL_CR_RS);
-
-	/* Clear data */
-	fpga_write_reg(LCD_DATA_CR, 0);
 }
 
 static void lcd_write_data(u16 data)
@@ -85,10 +82,6 @@ static void lcd_write_data(u16 data)
 	/* All control signals high */
 	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD |
 		       LCD_CTRL_CR_RS | LCD_CTRL_CR_WR);
-	ndelay(1);
-
-	/* Clear data */
-	fpga_write_reg(LCD_DATA_CR, 0);
 }
 
 /* See ILI9341 Datasheet */
