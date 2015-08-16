@@ -65,9 +65,13 @@ static void lcd_write_command(u16 val)
 	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD);
 	ndelay(1);
 
+	/* RS low, WR and RD high */
+	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD | LCD_CTRL_CR_WR);
+	ndelay(1);
+
 	/* All control signals high */
-	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD |
-		       LCD_CTRL_CR_WR | LCD_CTRL_CR_RS);
+	fpga_write_reg(LCD_CTRL_CR, LCD_CTRL_CR_RD | LCD_CTRL_CR_WR |
+                       LCD_CTRL_CR_RS);
 }
 
 static void lcd_write_data(u16 data)
